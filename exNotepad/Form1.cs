@@ -40,5 +40,23 @@ namespace exNotepad
                 }
             }
         }
+
+        private void txtOld_DoubleClick(object sender, EventArgs e)
+        {
+            if (txtOld.Text.Trim().Length > 0)
+            {
+                int start = richTextBox1.Find(txtOld.Text);
+                richTextBox1.Select(start, txtOld.Text.Length);
+                richTextBox1.SelectionBackColor = Color.Yellow;
+            }
+        }
+
+        private void txtNew_DoubleClick(object sender, EventArgs e)
+        {
+            if (txtNew.Text != "")
+            {
+                richTextBox1.Text = richTextBox1.Text.Replace(txtOld.Text, txtNew.Text);
+            }
+        }
     }
 }
